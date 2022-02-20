@@ -3,24 +3,20 @@ from Drawing import *
 def bubble_sort(drawing_info, ascending=True): 
     list = drawing_info.list 
  
- 
     for i in range(len(list) - 1): 
         for j in range(len(list) - 1 - i): 
             num1 = list[j] 
             num2 = list[j + 1] 
  
- 
             if (num1 > num2 and ascending)  or (num1 < num2 and not ascending): 
                 list[j], list[j + 1] = list[j + 1], list[j] 
                 draw_list(drawing_info, {j: drawing_info.RED, j + 1: drawing_info.GREEN}, True) 
-                yield True #  perform a swap and yield control to where  
-                           # it was called from and wait to be called again and then perform the next step, pauses and stores current state of function, can yield anything, ex. yield 1. 
+                yield True
     return list 
  
  
 def insertion_sort(drawing_info, ascending = True): 
     list = drawing_info.list 
- 
  
     for i in range(1, len(list)): 
         current = list[i] 
@@ -39,9 +35,9 @@ def insertion_sort(drawing_info, ascending = True):
  
     return list 
  
+ 
 def selection_sort(drawing_info, ascending = True): 
     list = drawing_info.list 
- 
  
     for i in range(len(list) - 1): 
         index = i 
@@ -55,6 +51,7 @@ def selection_sort(drawing_info, ascending = True):
             list[i], list[index] = list[index], list[i] 
             draw_list(drawing_info, {i: drawing_info.GREEN, index : drawing_info.RED}, True) 
             yield True 
+ 
  
 def shell_sort(drawing_info, ascending = True): 
     list = drawing_info.list 
@@ -75,6 +72,7 @@ def shell_sort(drawing_info, ascending = True):
  
         gap //= 2 
     return list 
+ 
  
 def cocktain_sort(drawing_info, ascending = True): 
     list = drawing_info.list 
@@ -101,6 +99,5 @@ def cocktain_sort(drawing_info, ascending = True):
                 draw_list(drawing_info, {i: drawing_info.GREEN, i + 1 : drawing_info.RED}, True) 
                 yield True 
                 swapped = True 
- 
 
     return list 
